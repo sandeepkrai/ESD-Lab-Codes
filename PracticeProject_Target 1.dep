@@ -1,0 +1,2 @@
+Dependencies for Project 'PracticeProject', Target 'Target 1': (DO NOT MODIFY !)
+F (.\ES LAB\L4\4.s)(0x65DA271D)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I D:\Softwares\Keil4\ARM\RV31\INC -I D:\Softwares\Keil4\ARM\CMSIS\Include -I D:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --list ".\4.lst" --xref -o "4.o" --depend "4.d")

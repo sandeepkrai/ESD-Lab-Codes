@@ -1,0 +1,168 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 100000FF        DCD              0x100000FF  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    6 00000004 00000000        DCD              Reset_Handler ; reset vector
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008         
+   10 00000008                 AREA             mycode, CODE, READONLY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000                 ENTRY
+   13 00000000         Reset_Handler
+   14 00000000 480B            LDR              R0,=N1
+   15 00000002 6801            LDR              R1,[R0]
+   16 00000004 480B            LDR              R0,=N2
+   17 00000006 6802            LDR              R2,[R0]
+   18 00000008 4291            CMP              R1,R2
+   19 0000000A D802            BHI              LOOP1
+   20 0000000C 460B            MOV              R3,R1
+   21 0000000E 4611            MOV              R1,R2
+   22 00000010 461A            MOV              R2,R3
+   23 00000012         LOOP1
+   24 00000012 FBB1 F5F2       UDIV             R5,R1,R2
+   25 00000016 FB02 F305       MUL              R3,R2,R5
+   26 0000001A 1AC8            SUBS             R0,R1,R3
+   27 0000001C D001            BEQ              EXIT
+   28 0000001E 4409            ADD              R1,R1
+   29 00000020 E7F7            B                LOOP1
+   30 00000022         EXIT
+   31 00000022 4805            LDR              R0, =LCM
+   32 00000024 6001            STR              R1,[R0]
+   33 00000026         STOP
+   34 00000026 E7FE            B                STOP
+   35 00000028 0000000C 
+                       N1      DCD              0XC
+   36 0000002C 00000012 
+                       N2      DCD              0X12
+   37 00000030 00000000 
+              00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   38 00000000 00000000 
+                       LCM     DCD              0
+   39 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=5.d -o5.
+o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\Include -ID:
+\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\5.lst
+ "ES LAB\L3\5.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file ES
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file ES
+   Uses
+      At line 2 in file ES
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+EXIT 00000022
+
+Symbol: EXIT
+   Definitions
+      At line 30 in file ES
+   Uses
+      At line 27 in file ES
+Comment: EXIT used once
+LOOP1 00000012
+
+Symbol: LOOP1
+   Definitions
+      At line 23 in file ES
+   Uses
+      At line 19 in file ES
+      At line 29 in file ES
+
+N1 00000028
+
+Symbol: N1
+   Definitions
+      At line 35 in file ES
+   Uses
+      At line 14 in file ES
+Comment: N1 used once
+N2 0000002C
+
+Symbol: N2
+   Definitions
+      At line 36 in file ES
+   Uses
+      At line 16 in file ES
+Comment: N2 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file ES
+   Uses
+      At line 6 in file ES
+      At line 11 in file ES
+
+STOP 00000026
+
+Symbol: STOP
+   Definitions
+      At line 33 in file ES
+   Uses
+      At line 34 in file ES
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 10 in file ES
+   Uses
+      None
+Comment: mycode unused
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LCM 00000000
+
+Symbol: LCM
+   Definitions
+      At line 38 in file ES
+   Uses
+      At line 31 in file ES
+Comment: LCM used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 37 in file ES
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+344 symbols in table

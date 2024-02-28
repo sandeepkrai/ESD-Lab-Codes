@@ -1,0 +1,131 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         
+    4 00000000         __Vectors
+    5 00000000 100000FF        DCD              0x100000FF  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    6 00000004 00000000        DCD              Reset_Handler ; reset vector
+    7 00000008         
+    8 00000008                 ALIGN
+    9 00000008         
+   10 00000008                 AREA             mycode, CODE, READONLY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000                 ENTRY
+   13 00000000         Reset_Handler
+   14 00000000 4808            LDR              R0,=N1
+   15 00000002 6801            LDR              R1,[R0]
+   16 00000004 F001 020F       AND              R2,R1,#0X0F
+   17 00000008 F001 03F0       AND              R3,R1,#0XF0
+   18 0000000C EA4F 1313       LSR              R3,#4
+   19 00000010 F04F 050A       MOV              R5,#10
+   20 00000014 FB03 2305       MLA              R3,R3,R5,R2
+   21 00000018 4803            LDR              R0,=RES
+   22 0000001A 6003            STR              R3,[R0]
+   23 0000001C         
+   24 0000001C         STOP
+   25 0000001C E7FE            B                STOP
+   26 0000001E 00 00 00000079 
+                       N1      DCD              0X79
+   27 00000024 00000000 
+              00000000         AREA             mydata, DATA, READWRITE
+   28 00000000 00000000 
+                       RES     DCD              0
+   29 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=3.d -o3.
+o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\Include -ID:
+\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.\3.lst
+ "ES LAB\L4\3.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file ES
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 4 in file ES
+   Uses
+      At line 2 in file ES
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+N1 00000020
+
+Symbol: N1
+   Definitions
+      At line 26 in file ES
+   Uses
+      At line 14 in file ES
+Comment: N1 used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 13 in file ES
+   Uses
+      At line 6 in file ES
+      At line 11 in file ES
+
+STOP 0000001C
+
+Symbol: STOP
+   Definitions
+      At line 24 in file ES
+   Uses
+      At line 25 in file ES
+Comment: STOP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 10 in file ES
+   Uses
+      None
+Comment: mycode unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RES 00000000
+
+Symbol: RES
+   Definitions
+      At line 28 in file ES
+   Uses
+      At line 21 in file ES
+Comment: RES used once
+mydata 00000000
+
+Symbol: mydata
+   Definitions
+      At line 27 in file ES
+   Uses
+      None
+Comment: mydata unused
+2 symbols
+341 symbols in table

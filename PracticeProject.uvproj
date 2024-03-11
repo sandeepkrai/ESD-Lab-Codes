@@ -390,13 +390,6 @@
       <Groups>
         <Group>
           <GroupName>Source Group 1</GroupName>
-          <Files>
-            <File>
-              <FileName>L3_Q3.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\Practice Codes\L3_Q3.s</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>

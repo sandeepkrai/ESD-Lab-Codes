@@ -1,0 +1,156 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 100000FF        DCD              0x100000FF
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008         
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000                 ENTRY
+   12 00000000         Reset_Handler
+   13 00000000         
+   14 00000000 4814            LDR              R0, =codememory_data
+   15 00000002 4915            LDR              R1, =datamemory_data
+   16 00000004 F04F 020A       MOV              R2, #10
+   17 00000008 F04F 0300       MOV              R3, #0
+   18 0000000C F04F 0500       MOV              R5, #0
+   19 00000010         
+   20 00000010         LOOP
+   21 00000010 6804            LDR              R4, [R0]
+   22 00000012 191B            ADDS             R3, R4
+   23 00000014 F145 0500       ADC              R5, #0
+   24 00000018 F100 0004       ADD              R0, #4
+   25 0000001C 3A01            SUBS             R2, #1
+   26 0000001E D1F7            BNE              LOOP
+   27 00000020         
+   28 00000020 600D            STR              R5, [R1]
+   29 00000022 F101 0104       ADD              R1, #4
+   30 00000026 600B            STR              R3, [R1]
+   31 00000028         
+   32 00000028 E7FE    stop    B                stop
+   33 0000002A 00 00 11111111 
+              22222222 
+              33333333 
+              44444444 
+              55555555 
+              66666666 
+              77777777 
+              88888888 
+              99999999 
+              AAAAAAAA codememory_data
+                               DCD              0X11111111, 0X22222222, 0X33333
+333, 0X44444444, 0X55555555, 0X66666666, 0X77777777, 0X88888888, 0X99999999, 0X
+AAAAAAAA
+   34 00000054 00000000 
+              00000000         AREA             datamemory, DATA, READWRITE
+   35 00000000 00000000 
+                       datamemory_data
+                               DCD              0
+   36 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=L2Q1.d -
+oL2Q1.o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\Includ
+e -ID:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.
+\L2Q1.lst "Practice Codes\L2Q1.S"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Practice
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Practice
+   Uses
+      At line 2 in file Practice
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 00000010
+
+Symbol: LOOP
+   Definitions
+      At line 20 in file Practice
+   Uses
+      At line 26 in file Practice
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file Practice
+   Uses
+      At line 5 in file Practice
+      At line 10 in file Practice
+
+codememory_data 0000002C
+
+Symbol: codememory_data
+   Definitions
+      At line 33 in file Practice
+   Uses
+      At line 14 in file Practice
+Comment: codememory_data used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Practice
+   Uses
+      None
+Comment: mycode unused
+stop 00000028
+
+Symbol: stop
+   Definitions
+      At line 32 in file Practice
+   Uses
+      At line 32 in file Practice
+Comment: stop used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+datamemory 00000000
+
+Symbol: datamemory
+   Definitions
+      At line 34 in file Practice
+   Uses
+      None
+Comment: datamemory unused
+datamemory_data 00000000
+
+Symbol: datamemory_data
+   Definitions
+      At line 35 in file Practice
+   Uses
+      At line 15 in file Practice
+Comment: datamemory_data used once
+2 symbols
+342 symbols in table

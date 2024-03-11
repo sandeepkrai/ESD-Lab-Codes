@@ -1,0 +1,146 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 100000FF        DCD              0x100000FF
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008         
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000                 ENTRY
+   12 00000000         Reset_Handler
+   13 00000000 480E            LDR              R0, =codememory_data
+   14 00000002 490F            LDR              R1, =datamemory_data
+   15 00000004 F04F 3255       MOV              R2, #0X55555555
+   16 00000008 F04F 0400       MOV              R4, #0
+   17 0000000C         LOOP
+   18 0000000C F104 0401       ADD              R4, #1
+   19 00000010 F850 3B04       LDR              R3, [R0], #4
+   20 00000014 4293            CMP              R3, R2
+   21 00000016 D1F9            BNE              LOOP
+   22 00000018         
+   23 00000018 600C            STR              R4, [R1]
+   24 0000001A         
+   25 0000001A E7FE    stop    B                stop
+   26 0000001C 11111111 
+              22222222 
+              33333333 
+              88888888 
+              44444444 
+              55555555 
+              66666666 
+              77777777 codememory_data
+                               DCD              0X11111111, 0X22222222, 0X33333
+333, 0X88888888, 0X44444444, 0X55555555, 0X66666666, 0X77777777
+   27 0000003C 00000000 
+              00000000         AREA             datamemory, DATA, READWRITE
+   28 00000000 00000000 
+                       datamemory_data
+                               DCD              0
+   29 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=L5Q3.d -
+oL5Q3.o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\Includ
+e -ID:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.
+\L5Q3.lst "Practice Codes\L5Q3.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Practice
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Practice
+   Uses
+      At line 2 in file Practice
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 0000000C
+
+Symbol: LOOP
+   Definitions
+      At line 17 in file Practice
+   Uses
+      At line 21 in file Practice
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file Practice
+   Uses
+      At line 5 in file Practice
+      At line 10 in file Practice
+
+codememory_data 0000001C
+
+Symbol: codememory_data
+   Definitions
+      At line 26 in file Practice
+   Uses
+      At line 13 in file Practice
+Comment: codememory_data used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Practice
+   Uses
+      None
+Comment: mycode unused
+stop 0000001A
+
+Symbol: stop
+   Definitions
+      At line 25 in file Practice
+   Uses
+      At line 25 in file Practice
+Comment: stop used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+datamemory 00000000
+
+Symbol: datamemory
+   Definitions
+      At line 27 in file Practice
+   Uses
+      None
+Comment: datamemory unused
+datamemory_data 00000000
+
+Symbol: datamemory_data
+   Definitions
+      At line 28 in file Practice
+   Uses
+      At line 14 in file Practice
+Comment: datamemory_data used once
+2 symbols
+342 symbols in table

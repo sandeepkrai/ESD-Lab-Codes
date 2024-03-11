@@ -4,8 +4,8 @@ ARM Linker, 5.03 [Build 24] [MDK-ARM Lite]
 
 Section Cross References
 
-    l5q1.o(RESET) refers to l5q1.o(mycode) for Reset_Handler
-    l5q1.o(mycode) refers to l5q1.o(datamemory) for datamemory_data
+    l5q3.o(RESET) refers to l5q3.o(mycode) for Reset_Handler
+    l5q3.o(mycode) refers to l5q3.o(datamemory) for datamemory_data
 
 
 ==============================================================================
@@ -16,20 +16,20 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    RESET                                    0x00000000   Section        8  l5q1.o(RESET)
-    Practice Codes\L5Q1.s                    0x00000000   Number         0  l5q1.o ABSOLUTE
-    mycode                                   0x00000008   Section      132  l5q1.o(mycode)
-    codememory_data                          0x0000005c   Data          32  l5q1.o(mycode)
-    datamemory                               0x10000000   Section        4  l5q1.o(datamemory)
-    datamemory_data                          0x10000000   Data           4  l5q1.o(datamemory)
+    RESET                                    0x00000000   Section        8  l5q3.o(RESET)
+    Practice Codes\L5Q3.s                    0x00000000   Number         0  l5q3.o ABSOLUTE
+    mycode                                   0x00000008   Section       68  l5q3.o(mycode)
+    codememory_data                          0x00000024   Data          32  l5q3.o(mycode)
+    datamemory                               0x10000000   Section        4  l5q3.o(datamemory)
+    datamemory_data                          0x10000000   Data           4  l5q3.o(datamemory)
 
     Global Symbols
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     BuildAttributes$$THM_ISAv4$P$D$K$B$S$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
-    __Vectors                                0x00000000   Data           0  l5q1.o(RESET)
-    Reset_Handler                            0x00000009   Thumb Code     0  l5q1.o(mycode)
+    __Vectors                                0x00000000   Data           0  l5q3.o(RESET)
+    Reset_Handler                            0x00000009   Thumb Code     0  l5q3.o(mycode)
 
 
 
@@ -39,21 +39,21 @@ Memory Map of the image
 
   Image Entry point : 0x00000009
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000090, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000050, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Base: 0x00000000, Size: 0x0000008c, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Base: 0x00000000, Size: 0x0000004c, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000008   Data   RO            1    RESET               l5q1.o
-    0x00000008   0x00000084   Code   RO            2  * mycode              l5q1.o
+    0x00000000   0x00000008   Data   RO            1    RESET               l5q3.o
+    0x00000008   0x00000044   Code   RO            2  * mycode              l5q3.o
 
 
     Execution Region ER_RW (Base: 0x10000000, Size: 0x00000004, Max: 0xffffffff, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x10000000   0x00000004   Data   RW            3    datamemory          l5q1.o
+    0x10000000   0x00000004   Data   RW            3    datamemory          l5q3.o
 
 
     Execution Region ER_ZI (Base: 0x10000004, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
@@ -68,10 +68,10 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       132         50          8          4          0        232   l5q1.o
+        68         40          8          4          0        208   l5q3.o
 
     ----------------------------------------------------------------------
-       132         50          8          4          0        232   Object Totals
+        68         40          8          4          0        208   Object Totals
          0          0          0          0          0          0   (incl. Generated)
          0          0          0          0          0          0   (incl. Padding)
 
@@ -86,15 +86,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       132         50          8          4          0        232   Grand Totals
-       132         50          8          4          0        232   ELF Image Totals
-       132         50          8          4          0          0   ROM Totals
+        68         40          8          4          0        208   Grand Totals
+        68         40          8          4          0        208   ELF Image Totals
+        68         40          8          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  140 (   0.14kB)
+    Total RO  Size (Code + RO Data)                   76 (   0.07kB)
     Total RW  Size (RW Data + ZI Data)                 4 (   0.00kB)
-    Total ROM Size (Code + RO Data + RW Data)        144 (   0.14kB)
+    Total ROM Size (Code + RO Data + RW Data)         80 (   0.08kB)
 
 ==============================================================================
 

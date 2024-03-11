@@ -1,0 +1,138 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 100000FF        DCD              0x100000FF
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008         
+    7 00000008                 ALIGN
+    8 00000008         
+    9 00000008                 AREA             mycode, CODE, READONLY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000                 ENTRY
+   12 00000000         Reset_Handler
+   13 00000000 4806            LDR              R0, =codememory_data
+   14 00000002 4C07            LDR              R4, =datamemory_data
+   15 00000004 F04F 0101       MOV              R1, #1
+   16 00000008 6802            LDR              R2, [R0]
+   17 0000000A         LOOP
+   18 0000000A FB01 F102       MUL              R1, R2
+   19 0000000E 3A01            SUBS             R2, #1
+   20 00000010 D1FB            BNE              LOOP
+   21 00000012         
+   22 00000012 6021            STR              R1, [R4]
+   23 00000014         
+   24 00000014 E7FE    stop    B                stop
+   25 00000016 00 00 00000005 
+                       codememory_data
+                               DCD              0X5
+   26 0000001C 00000000 
+              00000000         AREA             datamemory, DATA, READWRITE
+   27 00000000 00000000 
+                       datamemory_data
+                               DCD              0
+   28 00000004                 end
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=L5Q2.d -
+oL5Q2.o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\Includ
+e -ID:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --list=.
+\L5Q2.lst "Practice Codes\L5Q2.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file Practice
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Practice
+   Uses
+      At line 2 in file Practice
+Comment: __Vectors used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP 0000000A
+
+Symbol: LOOP
+   Definitions
+      At line 17 in file Practice
+   Uses
+      At line 20 in file Practice
+Comment: LOOP used once
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file Practice
+   Uses
+      At line 5 in file Practice
+      At line 10 in file Practice
+
+codememory_data 00000018
+
+Symbol: codememory_data
+   Definitions
+      At line 25 in file Practice
+   Uses
+      At line 13 in file Practice
+Comment: codememory_data used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file Practice
+   Uses
+      None
+Comment: mycode unused
+stop 00000014
+
+Symbol: stop
+   Definitions
+      At line 24 in file Practice
+   Uses
+      At line 24 in file Practice
+Comment: stop used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+datamemory 00000000
+
+Symbol: datamemory
+   Definitions
+      At line 26 in file Practice
+   Uses
+      None
+Comment: datamemory unused
+datamemory_data 00000000
+
+Symbol: datamemory_data
+   Definitions
+      At line 27 in file Practice
+   Uses
+      At line 14 in file Practice
+Comment: datamemory_data used once
+2 symbols
+342 symbols in table

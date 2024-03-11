@@ -1,16 +1,16 @@
 *** Creating Trace Output File 'PracticeProject.tra' Ok.
 ### Preparing for ADS-LD.
 ### Creating ADS-LD Command Line
-### List of Objects: adding '"l5q1.o"'
+### List of Objects: adding '"l5q3.o"'
 ### ADS-LD Command completed:
---cpu Cortex-M3 "l5q1.o" 
+--cpu Cortex-M3 "l5q3.o" 
 --ro-base 0x00000000 --entry 0x00000000 --rw-base 0x10000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
 --info sizes --info totals --info unused --info veneers 
  --list ".\PracticeProject.map" -o PracticeProject.axf### Preparing Environment (PrepEnvAds)
 ### ADS-LD Output File: 'PracticeProject.axf'
 ### ADS-LD Command File: 'PracticeProject.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'PracticeProject.lnp', Handle=0x00002064
+### Creating CmdFile 'PracticeProject.lnp', Handle=0x0000262C
 ### Writing '.lnp' file
 ### ADS-LD Command file 'PracticeProject.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

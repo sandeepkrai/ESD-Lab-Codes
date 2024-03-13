@@ -385,9 +385,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>2.s</FileName>
+              <FileName>bubble.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\ES LAB\L3\2.s</FilePath>
+              <FilePath>.\Practice Codes\bubble.s</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,2 +1,2 @@
 Dependencies for Project 'PracticeProject', Target 'Target 1': (DO NOT MODIFY !)
-F (.\Practice Codes\prime.s)(0x65F01101)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I D:\Softwares\Keil4\ARM\RV31\INC -I D:\Softwares\Keil4\ARM\CMSIS\Include -I D:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --list ".\prime.lst" --xref -o "prime.o" --depend "prime.d")
+F (.\Practice Codes\bubble.s)(0x65F12A67)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I D:\Softwares\Keil4\ARM\RV31\INC -I D:\Softwares\Keil4\ARM\CMSIS\Include -I D:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --list ".\bubble.lst" --xref -o "bubble.o" --depend "bubble.d")

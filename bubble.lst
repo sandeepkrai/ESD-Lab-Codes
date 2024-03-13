@@ -1,0 +1,207 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             reset,DATA,READONLY
+    2 00000000                 EXPORT           __Vectors
+    3 00000000         __Vectors
+    4 00000000 10001000        DCD              0x10001000
+    5 00000004 00000000        DCD              Reset_Handler
+    6 00000008                 ALIGN
+    7 00000008                 AREA             mycode,CODE,READONLY
+    8 00000000                 EXPORT           Reset_Handler
+    9 00000000                 ENTRY
+   10 00000000         Reset_Handler
+   11 00000000 4818            LDR              R0, =SRC
+   12 00000002 F04F 0204       MOV              R2, #4
+   13 00000006 4B18            LDR              R3, =DST
+   14 00000008         LOOP
+   15 00000008 F850 1B04       LDR              R1, [R0], #4
+   16 0000000C F843 1B04       STR              R1, [R3], #4
+   17 00000010 3A01            SUBS             R2, #1
+   18 00000012 D1F9            BNE              LOOP
+   19 00000014         
+   20 00000014 F04F 0203       MOV              R2, #3
+   21 00000018         
+   22 00000018         OUTER
+   23 00000018 4813            LDR              R0, =DST
+   24 0000001A 4913            LDR              R1, =DST
+   25 0000001C F101 0104       ADD              R1, #4
+   26 00000020 F04F 0303       MOV              R3, #3
+   27 00000024         
+   28 00000024         INNER
+   29 00000024 F850 4B04       LDR              R4, [R0], #4
+   30 00000028 F851 5B04       LDR              R5, [R1], #4
+   31 0000002C 42AC            CMP              R4, R5
+   32 0000002E D804            BHI              SWAP
+   33 00000030 3B01            SUBS             R3, #1
+   34 00000032 D1F7            BNE              INNER
+   35 00000034 3A01            SUBS             R2, #1
+   36 00000036 D1EF            BNE              OUTER
+   37 00000038 D00B            BEQ              stop
+   38 0000003A         
+   39 0000003A         SWAP
+   40 0000003A F1A0 0004       SUB              R0, #4
+   41 0000003E F840 5B04       STR              R5, [R0], #4
+   42 00000042 F1A1 0104       SUB              R1, #4
+   43 00000046 F841 4B04       STR              R4, [R1], #4
+   44 0000004A 3B01            SUBS             R3, #1
+   45 0000004C D1EA            BNE              INNER
+   46 0000004E 3A01            SUBS             R2, #1
+   47 00000050 D1E2            BNE              OUTER
+   48 00000052         
+   49 00000052         
+   50 00000052 E7FE    stop    B                stop
+   51 00000054 00000001 
+              00000005 
+              00000002 
+              00000000 SRC     DCD              0X1, 0X5, 0X2, 0X0
+   52 00000064 00000000 
+              00000000 
+              00000000 
+              00000000         AREA             datamemory, DATA, READWRITE
+   53 00000000 00000000 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                       DST     DCD              0
+   54 00000004                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=bubble.d
+ -obubble.o -ID:\Softwares\Keil4\ARM\RV31\INC -ID:\Softwares\Keil4\ARM\CMSIS\In
+clude -ID:\Softwares\Keil4\ARM\Inc\NXP\LPC17xx --predefine="__EVAL SETA 1" --li
+st=.\bubble.lst "Practice Codes\bubble.s"
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 3 in file Practice
+   Uses
+      At line 2 in file Practice
+Comment: __Vectors used once
+reset 00000000
+
+Symbol: reset
+   Definitions
+      At line 1 in file Practice
+   Uses
+      None
+Comment: reset unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+INNER 00000024
+
+Symbol: INNER
+   Definitions
+      At line 28 in file Practice
+   Uses
+      At line 34 in file Practice
+      At line 45 in file Practice
+
+LOOP 00000008
+
+Symbol: LOOP
+   Definitions
+      At line 14 in file Practice
+   Uses
+      At line 18 in file Practice
+Comment: LOOP used once
+OUTER 00000018
+
+Symbol: OUTER
+   Definitions
+      At line 22 in file Practice
+   Uses
+      At line 36 in file Practice
+      At line 47 in file Practice
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 10 in file Practice
+   Uses
+      At line 5 in file Practice
+      At line 8 in file Practice
+
+SRC 00000054
+
+Symbol: SRC
+   Definitions
+      At line 51 in file Practice
+   Uses
+      At line 11 in file Practice
+Comment: SRC used once
+SWAP 0000003A
+
+Symbol: SWAP
+   Definitions
+      At line 39 in file Practice
+   Uses
+      At line 32 in file Practice
+Comment: SWAP used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 7 in file Practice
+   Uses
+      None
+Comment: mycode unused
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+stop 00000052
+
+Symbol: stop
+   Definitions
+      At line 50 in file Practice
+   Uses
+      At line 37 in file Practice
+      At line 50 in file Practice
+
+8 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DST 00000000
+
+Symbol: DST
+   Definitions
+      At line 53 in file Practice
+   Uses
+      At line 13 in file Practice
+      At line 23 in file Practice
+      At line 24 in file Practice
+
+datamemory 00000000
+
+Symbol: datamemory
+   Definitions
+      At line 52 in file Practice
+   Uses
+      None
+Comment: datamemory unused
+2 symbols
+345 symbols in table
